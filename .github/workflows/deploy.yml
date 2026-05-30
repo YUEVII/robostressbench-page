@@ -38,7 +38,7 @@ jobs:
 
       - name: Resolve build output
         run: |
-          for dir in .output/public dist build; do
+          for dir in dist/client .output/public dist build; do
             if [ -f "$dir/index.html" ]; then
               echo "PAGES_OUTPUT_DIR=$dir" >> "$GITHUB_ENV"
               echo "Using build output: $dir"
@@ -52,10 +52,14 @@ jobs:
           ls -la .output || true
           echo "dist:"
           ls -la dist || true
+          echo "dist/client:"
+          ls -la dist/client || true
           exit 1
 
       - name: Create SPA fallback
-        run: cp "$PAGES_OUTPUT_DIR/index.html" "$PAGES_OUTPUT_DIR/404.html"
+        run: |
+          cp "$PAGES_OUTPUT_DIR/index.html" "$PAGES_OUTPUT_DIR/404.html"
+          touch "$PAGES_OUTPUT_DIR/.nojekyll"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
