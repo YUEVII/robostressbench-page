@@ -36,35 +36,15 @@ jobs:
       - name: Build
         run: bun run build
 
-      - name: Resolve build output
-        run: |
-          for dir in dist/client .output/public dist build; do
-            if [ -f "$dir/index.html" ]; then
-              echo "PAGES_OUTPUT_DIR=$dir" >> "$GITHUB_ENV"
-              echo "Using build output: $dir"
-              exit 0
-            fi
-          done
-          echo "Could not find index.html in known build output directories."
-          echo "Repository root:"
-          ls -la
-          echo ".output:"
-          ls -la .output || true
-          echo "dist:"
-          ls -la dist || true
-          echo "dist/client:"
-          ls -la dist/client || true
-          exit 1
-
       - name: Create SPA fallback
         run: |
-          cp "$PAGES_OUTPUT_DIR/index.html" "$PAGES_OUTPUT_DIR/404.html"
-          touch "$PAGES_OUTPUT_DIR/.nojekyll"
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ env.PAGES_OUTPUT_DIR }}
+          path: dist
 
   deploy:
     environment:

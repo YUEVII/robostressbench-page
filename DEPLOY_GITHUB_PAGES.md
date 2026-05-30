@@ -27,7 +27,7 @@ bun run build
 The static output is generated at:
 
 ```text
-.output/public
+dist
 ```
 
 ## 3. Enable GitHub Pages
@@ -55,7 +55,7 @@ git push origin main
 ```
 
 GitHub Actions will run `.github/workflows/deploy.yml`, build the site, and
-publish `.output/public` to GitHub Pages.
+publish `dist` to GitHub Pages.
 
 After the workflow finishes, open:
 
