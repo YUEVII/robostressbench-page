@@ -19,19 +19,32 @@ export const Route = createFileRoute("/join")({
 
 const CONTACT_EMAIL = "lwu398@connect.hkust-gz.edu.cn";
 
-const EXAMPLE = `[
-  {
-    "id": 1,
-    "question_id": "CholecTrack20_VID01_q1_distinct-instruments-counting",
-    "dataset": "CholecTrack20",
-    "answer": "D"
-  }
-]`;
+const EXAMPLE = `{
+  "schema_version": "1.0",
+  "benchmark": "RoboStressBench",
+  "dataset_version": "1.0",
+  "model_name": "model-name",
+  "affiliation": "organization-name",
+  "contact": {
+    "name": "contact-name",
+    "email": "contact@example.com"
+  },
+  "predictions": [
+    {
+      "sample_id": "000001",
+      "parsed_answer": {
+        "kind": "mcq",
+        "answer_index": 0,
+        "answer": "A"
+      }
+    }
+  ]
+}`;
 
 const CHECKLIST = [
-  "Your model name and version",
-  "Your affiliation or organization",
-  "A contact person for follow-up",
+  "Model name and version",
+  "Affiliation or organization",
+  "Contact person and email for follow-up",
   "A JSON prediction file using the format below",
 ];
 
@@ -95,11 +108,11 @@ function JoinPage() {
             </h2>
           </div>
           <p className="text-sm text-muted-foreground mb-4">
-            Each entry should include{" "}
-            <code className="font-mono text-foreground">id</code>,{" "}
-            <code className="font-mono text-foreground">question_id</code>,{" "}
-            <code className="font-mono text-foreground">dataset</code>, and{" "}
-            <code className="font-mono text-foreground">answer</code>.
+            Submit a <code className="font-mono text-foreground">submission.json</code>{" "}
+            file with model, affiliation, contact, and parsed predictions. For unparseable
+            responses, set{" "}
+            <code className="font-mono text-foreground">parsed_answer</code> to{" "}
+            <code className="font-mono text-foreground">null</code>.
           </p>
           <pre className="text-xs md:text-sm font-mono text-foreground/90 overflow-x-auto leading-relaxed">
             {EXAMPLE}
