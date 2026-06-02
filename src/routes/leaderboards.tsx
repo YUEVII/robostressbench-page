@@ -24,7 +24,7 @@ function Page() {
           </h1>
           <p className="text-muted-foreground max-w-2xl">
             Click any column to sort. Filter by model family. Scores are overall accuracy (%) under
-            physical visual stress.
+            physical visual stress. The leaderboard is updated every two weeks.
           </p>
         </div>
         <Leaderboard />

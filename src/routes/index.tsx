@@ -44,7 +44,7 @@ const NEWS: { date: string; emoji: string; content: ReactNode }[] = [
     content: (
       <>
         Our paper of{" "}
-        <a href="https://arxiv.org/abs/2604.15299" target="_blank" rel="noreferrer" className="text-primary hover:underline font-medium">
+        <a href="https://arxiv.org/abs/2606.00828" target="_blank" rel="noreferrer" className="text-primary hover:underline font-medium">
           RoboStressBench
         </a>{" "}
         is now available on arXiv. Check it out for more details 🔍!
@@ -57,7 +57,7 @@ const NEWS: { date: string; emoji: string; content: ReactNode }[] = [
     content: (
       <>
         We launched the{" "}
-        <a href="https://github.com/YUEVII/RoboStressBench" target="_blank" rel="noreferrer" className="text-primary hover:underline font-medium">
+        <a href="https://yuevii.github.io/robostressbench-page/" target="_blank" rel="noreferrer" className="text-primary hover:underline font-medium">
           Official website
         </a>{" "}
         of RoboStressBench 🚀.
@@ -172,7 +172,7 @@ function Index() {
               EVALUATION FRAMEWORK
             </a>
             <a
-              href="https://arxiv.org/abs/2604.15299"
+              href="https://arxiv.org/abs/2606.00828"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center justify-center gap-2 rounded-xl glass-strong px-5 py-3.5 text-sm font-semibold text-foreground hover:text-primary transition-all"
@@ -398,6 +398,9 @@ function Index() {
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
               VLM Robustness <span className="text-gradient">Rankings</span>
             </h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              The leaderboard is updated every two weeks.
+            </p>
             <div className="mt-3 flex flex-wrap gap-2 text-xs font-mono">
               {["16 VLMs", "5 families", "Qwen", "GPT", "InternVL", "Gemini", "Molmo"].map((c) => (
                 <span key={c} className="glass px-2.5 py-1 rounded-full text-muted-foreground">{c}</span>
@@ -521,16 +524,19 @@ function Index() {
             Cite <span className="text-gradient">RoboStressBench</span>
           </h2>
           <p className="mt-3 text-muted-foreground max-w-3xl leading-relaxed">
-            BibTeX entry coming soon. We will update this section once the citation is finalized.
+            If you find RoboStressBench useful, please cite our paper.
           </p>
         </div>
         <div className="glass rounded-2xl p-5">
           <pre className="text-xs md:text-sm font-mono text-muted-foreground whitespace-pre-wrap leading-relaxed">
-{`@misc{robostressbench2026,
-  title  = { TBD },
-  author = { TBD },
-  year   = { 2026 },
-  note   = { BibTeX placeholder — to be updated }
+{`@misc{wu2026robostressbenchbenchmarkingvlmrobustness,
+      title={RoboStressBench: Benchmarking VLM Robustness to Physical Visual Stress in Embodied Scenes}, 
+      author={Leyi Wu and Yifan Zhao and Jinjie Zhang and Suzeyu Chen and Wosong Chen and Zhifei Chen and Tianshuo Xu and Qingchun He and Hongxin Hu and Haojian Huang and Yangkai Wei and Wenqian Li and Yinchuan Li and Ying-Cong Chen},
+      year={2026},
+      eprint={2606.00828},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2606.00828}, 
 }`}
           </pre>
         </div>
